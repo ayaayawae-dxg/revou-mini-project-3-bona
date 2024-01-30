@@ -1,13 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Home from './pages/Home';
+import { ConfigProvider } from 'antd';
+import { Home } from 'pages';
 
 function App() {
   return (
-    <div className="App">
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: "#040040",
+        },
+      }}
+    >
       <Home />
-    </div>
+    </ConfigProvider>
   );
 }
 
