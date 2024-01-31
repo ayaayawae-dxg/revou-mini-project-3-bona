@@ -1,7 +1,9 @@
-import { Form } from "antd";
 import { Controller, useFormContext } from "react-hook-form";
+
 import Input from "../Input/Input";
 import Password from "../Input/Password";
+import Label from "../Input/Label";
+import ErrorMessage from "../Input/ErrorMessage";
 
 const AccountInformation = () => {
   const {
@@ -12,7 +14,7 @@ const AccountInformation = () => {
 
   return (
     <div>
-      <Form.Item label="Username">
+      <Label label="Username">
         <Controller
           name="username"
           control={control}
@@ -22,14 +24,11 @@ const AccountInformation = () => {
           )}
         />
         {errors.username && (
-          <span
-            role="alert"
-            className="error-message"
-          >{`${errors.username.message}`}</span>
+          <ErrorMessage>{`${errors.username.message}`}</ErrorMessage>
         )}
-      </Form.Item>
+      </Label>
 
-      <Form.Item label="Password">
+      <Label label="Password">
         <Controller
           name="password"
           control={control}
@@ -55,14 +54,11 @@ const AccountInformation = () => {
           )}
         />
         {errors.password && (
-          <span
-            role="alert"
-            className="error-message"
-          >{`${errors.password.message}`}</span>
+          <ErrorMessage>{`${errors.password.message}`}</ErrorMessage>
         )}
-      </Form.Item>
+      </Label>
 
-      <Form.Item label="Re-Password">
+      <Label label="Re-Password">
         <Controller
           name="rePassword"
           control={control}
@@ -79,12 +75,9 @@ const AccountInformation = () => {
           )}
         />
         {errors.rePassword && (
-          <span
-            role="alert"
-            className="error-message"
-          >{`${errors.rePassword.message}`}</span>
+          <ErrorMessage>{`${errors.rePassword.message}`}</ErrorMessage>
         )}
-      </Form.Item>
+      </Label>
     </div>
   );
 };

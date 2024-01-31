@@ -5,6 +5,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import PersonalInformation from "./components/Form/PersonalInformation";
 import AddressInformation from "./components/Form/AddressInformation";
 import AccountInformation from "./components/Form/AccountInformation";
+import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
 
 const steps = [
   {
@@ -25,6 +26,13 @@ type FormData = {
   firstName: string;
   email: string;
   birthDate: Date;
+  streetAddress: string;
+  state: string;
+  city: string;
+  zipCode: string;
+  username: string;
+  password: string;
+  rePassword: string;
 };
 
 const Home = () => {
@@ -49,7 +57,11 @@ const Home = () => {
   return (
     <GeneralLayout>
       <FormProvider {...methods}>
-        <Form onFinish={methods.handleSubmit(onSubmit)}>
+        <Form
+          labelCol={{ span: 6 }}
+          wrapperCol={{ span: "100%" }}
+          onFinish={methods.handleSubmit(onSubmit)}
+        >
           <Steps current={current} items={items} />
 
           <div
@@ -65,17 +77,15 @@ const Home = () => {
 
           <Flex justify="space-between" style={{ marginTop: "1rem" }}>
             {current > 0 ? (
-              <Button onClick={prev}>Previous</Button>
+              <Button size="large" icon={<ArrowLeftOutlined />} type="primary" onClick={prev} />
             ) : (
               <div></div>
             )}
             {current < steps.length - 1 && (
-              <Button type="primary" onClick={next}>
-                Next
-              </Button>
+              <Button size="large" icon={<ArrowRightOutlined />} type="primary" onClick={next} />
             )}
             {current === steps.length - 1 && (
-              <Button type="primary" htmlType="submit">
+              <Button size="large" type="primary" htmlType="submit">
                 Done
               </Button>
             )}

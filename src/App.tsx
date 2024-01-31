@@ -13,11 +13,16 @@ function App() {
           DatePicker: {
             colorBgElevated: '#00011e',
             activeBg: '#00011e',
+            fontSize: 20,
           },
           Select: {
             colorBgElevated: "#00011e",
-            optionSelectedColor: "black"
-          }
+            optionSelectedColor: "black",
+            fontSize: 20
+          },
+          Input: {
+            activeBorderColor: "red"
+          },
         },
       }}
     >

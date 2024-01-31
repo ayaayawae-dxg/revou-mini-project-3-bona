@@ -12,6 +12,7 @@ const TextArea = ({ placeholder, ...rest }: Props) => {
         color: "white",
         borderRadius: "0px",
         borderBottom: "1px solid white",
+        fontSize: "1.25rem"
       }}
       variant="borderless"
       placeholder={placeholder}

@@ -1,10 +1,12 @@
-import React from "react";
-import { Form } from "antd";
 import { Controller, useFormContext } from "react-hook-form";
+
+import { STATE_CITY } from "utils/constant";
+
 import TextArea from "../Input/TextArea";
 import Select from "../Input/Select";
-import { STATE_CITY } from "utils/constant";
 import Input from "../Input/Input";
+import Label from "../Input/Label";
+import ErrorMessage from "../Input/ErrorMessage";
 
 const AddressInformation = () => {
   const {
@@ -16,7 +18,7 @@ const AddressInformation = () => {
 
   return (
     <div>
-      <Form.Item label="Street Address">
+      <Label label="Street Address">
         <Controller
           name="streetAddress"
           control={control}
@@ -26,14 +28,11 @@ const AddressInformation = () => {
           )}
         />
         {errors.streetAddress && (
-          <span
-            role="alert"
-            className="error-message"
-          >{`${errors.streetAddress.message}`}</span>
+          <ErrorMessage>{`${errors.streetAddress.message}`}</ErrorMessage>
         )}
-      </Form.Item>
+      </Label>
 
-      <Form.Item label="State">
+      <Label label="State">
         <Controller
           name="state"
           control={control}
@@ -54,14 +53,11 @@ const AddressInformation = () => {
           )}
         />
         {errors.state && (
-          <span
-            role="alert"
-            className="error-message"
-          >{`${errors.state.message}`}</span>
+          <ErrorMessage>{`${errors.state.message}`}</ErrorMessage>
         )}
-      </Form.Item>
+      </Label>
 
-      <Form.Item label="City">
+      <Label label="City">
         <Controller
           name="city"
           control={control}
@@ -84,14 +80,11 @@ const AddressInformation = () => {
           )}
         />
         {errors.city && (
-          <span
-            role="alert"
-            className="error-message"
-          >{`${errors.city.message}`}</span>
+          <ErrorMessage>{`${errors.city.message}`}</ErrorMessage>
         )}
-      </Form.Item>
+      </Label>
 
-      <Form.Item label="Zip Code">
+      <Label label="Zip Code">
         <Controller
           name="zipCode"
           control={control}
@@ -99,20 +92,17 @@ const AddressInformation = () => {
             required: "Zip Code is required",
             pattern: {
               value: /^[0-9]{5}-[0-9]{4}$/,
-              message: "Zip Code is not valid (Example: XXXXX-XXXX)",
+              message: "Zip Code is not valid (Example: 12345-1234)",
             },
           }}
           render={({ field: { ref, ...field } }) => (
-            <Input {...field} placeholder="Zip Code (Example: XXXXX-XXXX)" />
+            <Input {...field} placeholder="Zip Code (Example: 12345-1234)" />
           )}
         />
         {errors.zipCode && (
-          <span
-            role="alert"
-            className="error-message"
-          >{`${errors.zipCode.message}`}</span>
+          <ErrorMessage>{`${errors.zipCode.message}`}</ErrorMessage>
         )}
-      </Form.Item>
+      </Label>
     </div>
   );
 };

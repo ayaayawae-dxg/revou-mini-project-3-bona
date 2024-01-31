@@ -5,7 +5,7 @@ const DatePicker = ({ ...rest }: any) => {
   return (
     <CustomDatePicker
       variant="filled"
-      style={{ width: '100%' }}
+      style={{ width: "100%", fontSize: "1.25rem" }}
       {...rest}
     />
   );

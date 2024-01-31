@@ -1,9 +1,10 @@
-import React from "react";
-import { Form } from "antd";
 import { Controller, useFormContext } from "react-hook-form";
+import moment from "moment";
+
 import Input from "../Input/Input";
 import DatePicker from "../Input/DatePicker";
-import moment from "moment";
+import Label from "../Input/Label";
+import ErrorMessage from "../Input/ErrorMessage";
 
 const PersonalInformation = () => {
   const {
@@ -13,7 +14,7 @@ const PersonalInformation = () => {
 
   return (
     <div>
-      <Form.Item label="First Name">
+      <Label label="First Name">
         <Controller
           name="firstName"
           control={control}
@@ -23,11 +24,11 @@ const PersonalInformation = () => {
           )}
         />
         {errors.firstName && (
-          <span role="alert" className="error-message">{`${errors.firstName.message}`}</span>
+          <ErrorMessage>{`${errors.firstName.message}`}</ErrorMessage>
         )}
-      </Form.Item>
+      </Label>
 
-      <Form.Item label="Email">
+      <Label label="Email">
         <Controller
           name="email"
           control={control}
@@ -42,10 +43,10 @@ const PersonalInformation = () => {
             <Input {...field} placeholder="Email" />
           )}
         />
-        {errors.email && <span role="alert" className="error-message">{`${errors.email.message}`}</span>}
-      </Form.Item>
+        {errors.email && <ErrorMessage>{`${errors.email.message}`}</ErrorMessage>}
+      </Label>
 
-      <Form.Item label="Date of Birth">
+      <Label label="Date of Birth">
         <Controller
           name="birthDate"
           control={control}
@@ -59,8 +60,8 @@ const PersonalInformation = () => {
             <DatePicker {...field} />
           )}
         />
-        {errors.birthDate && <span role="alert" className="error-message">{`${errors.birthDate.message}`}</span>}
-      </Form.Item>
+        {errors.birthDate && <ErrorMessage>{`${errors.birthDate.message}`}</ErrorMessage>}
+      </Label>
     </div>
   );
 };
