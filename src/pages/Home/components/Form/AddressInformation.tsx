@@ -4,6 +4,7 @@ import { Controller, useFormContext } from "react-hook-form";
 import TextArea from "../Input/TextArea";
 import Select from "../Input/Select";
 import { STATE_CITY } from "utils/constant";
+import Input from "../Input/Input";
 
 const AddressInformation = () => {
   const {
@@ -87,6 +88,23 @@ const AddressInformation = () => {
             role="alert"
             className="error-message"
           >{`${errors.city.message}`}</span>
+        )}
+      </Form.Item>
+
+      <Form.Item label="Zip Code">
+        <Controller
+          name="zipCode"
+          control={control}
+          rules={{ required: "Zip Code is required", pattern: { value: /^[0-9]{5}-[0-9]{4}$/, message: "Zip Code is not valid" } }}
+          render={({ field: { ref, ...field } }) => (
+            <Input {...field} placeholder="Zip Code (Example: xxxxx-xxxx)" />
+          )}
+        />
+        {errors.zipCode && (
+          <span
+            role="alert"
+            className="error-message"
+          >{`${errors.zipCode.message}`}</span>
         )}
       </Form.Item>
     </div>
