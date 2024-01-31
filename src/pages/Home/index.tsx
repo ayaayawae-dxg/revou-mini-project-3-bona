@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { GeneralLayout } from "layouts";
-import { Button, Flex, Form, Input, Steps, message, theme } from "antd";
-import { Controller, FormProvider, useForm } from "react-hook-form";
+import { Button, Flex, Form, Steps, theme } from "antd";
+import { FormProvider, useForm } from "react-hook-form";
 import PersonalInformation from "./components/Form/PersonalInformation";
 import AddressInformation from "./components/Form/AddressInformation";
+import AccountInformation from "./components/Form/AccountInformation";
 
 const steps = [
   {
@@ -16,7 +17,7 @@ const steps = [
   },
   {
     title: "Account Information",
-    content: "Last-content",
+    content: <AccountInformation />,
   },
 ];
 

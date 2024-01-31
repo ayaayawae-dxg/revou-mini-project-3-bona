@@ -95,9 +95,15 @@ const AddressInformation = () => {
         <Controller
           name="zipCode"
           control={control}
-          rules={{ required: "Zip Code is required", pattern: { value: /^[0-9]{5}-[0-9]{4}$/, message: "Zip Code is not valid" } }}
+          rules={{
+            required: "Zip Code is required",
+            pattern: {
+              value: /^[0-9]{5}-[0-9]{4}$/,
+              message: "Zip Code is not valid (Example: XXXXX-XXXX)",
+            },
+          }}
           render={({ field: { ref, ...field } }) => (
-            <Input {...field} placeholder="Zip Code (Example: xxxxx-xxxx)" />
+            <Input {...field} placeholder="Zip Code (Example: XXXXX-XXXX)" />
           )}
         />
         {errors.zipCode && (
