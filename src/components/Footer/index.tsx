@@ -1,4 +1,5 @@
-import { Layout } from "antd";
+import { Image, Layout } from "antd";
+import DigicampLogo from "assets/digicamp-logo-white.png"
 
 const { Footer: CustomFooter } = Layout;
 
@@ -7,15 +8,15 @@ const Footer = () => {
     <CustomFooter
       style={{
         textAlign: "center",
-        color: "#fff",
         backgroundColor: "#00011e",
-        height: "auto",
-        fontSize: "3rem",
-        lineHeight: "normal",
+        height: "6rem",
         padding: "1rem 1rem"
       }}
     >
-      Footer
+      <Image
+        height={"100%"}
+        src={DigicampLogo}
+      />
     </CustomFooter>
   );
 };
