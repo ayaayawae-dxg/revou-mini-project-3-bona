@@ -8,10 +8,14 @@ const Header = () => {
       style={{
         textAlign: "center",
         color: "#fff",
-        backgroundColor: "#4096ff",
+        backgroundColor: "#00011e",
+        height: "auto",
+        fontSize: "3rem",
+        lineHeight: "normal",
+        padding: "1rem 1rem"
       }}
     >
-      Digicamp
+      Digicamp Registration
     </CustomHeader>
   );
 };

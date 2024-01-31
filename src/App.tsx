@@ -6,7 +6,14 @@ function App() {
     <ConfigProvider
       theme={{
         token: {
-          colorPrimary: "#040040",
+          colorPrimary: "#341eff",
+          colorTextBase: "white"
+        },
+        components: {
+          DatePicker: {
+            colorBgElevated: '#00011e',
+            activeBg: '00011e',
+          },
         },
       }}
     >
