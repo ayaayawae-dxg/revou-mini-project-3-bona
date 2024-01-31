@@ -43,7 +43,9 @@ const PersonalInformation = () => {
             <Input {...field} placeholder="Email" />
           )}
         />
-        {errors.email && <ErrorMessage>{`${errors.email.message}`}</ErrorMessage>}
+        {errors.email && (
+          <ErrorMessage>{`${errors.email.message}`}</ErrorMessage>
+        )}
       </Label>
 
       <Label label="Date of Birth">
@@ -52,15 +54,22 @@ const PersonalInformation = () => {
           control={control}
           rules={{
             validate: {
-              isBeforeNow: (value) => moment(value).isBefore(moment()) || "Date of Birth is not valid",
+              isBeforeNow: (value) => {
+                const now = moment();
+                const birthDate = moment(value.toString());
+                if (birthDate.isAfter(now)) {
+                  return "Date of Birth is not valid";
+                }
+                return true;
+              },
             },
             required: "Date of Birth is required",
           }}
-          render={({ field: { ref, ...field } }) => (
-            <DatePicker {...field} />
-          )}
+          render={({ field: { ref, ...field } }) => <DatePicker {...field} />}
         />
-        {errors.birthDate && <ErrorMessage>{`${errors.birthDate.message}`}</ErrorMessage>}
+        {errors.birthDate && (
+          <ErrorMessage>{`${errors.birthDate.message}`}</ErrorMessage>
+        )}
       </Label>
     </div>
   );
