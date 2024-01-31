@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { GeneralLayout } from "layouts";
-import { Button, Flex, Form, Steps, theme } from "antd";
+import { Form, Steps, theme } from "antd";
 import { FormProvider, useForm } from "react-hook-form";
 import PersonalInformation from "./components/Form/PersonalInformation";
 import AddressInformation from "./components/Form/AddressInformation";
 import AccountInformation from "./components/Form/AccountInformation";
-import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
+import NavButton from "./components/molecules/NavButton";
 
 const steps = [
   {
@@ -42,6 +42,7 @@ const Home = () => {
 
   const next = () => {
     methods.handleSubmit((data) => {
+      console.log(data);
       setCurrent(current + 1);
     })();
   };
@@ -66,30 +67,13 @@ const Home = () => {
 
           <div
             style={{
-              color: token.colorTextBase,
-              backgroundColor: token.colorFillAlter,
-              borderRadius: token.borderRadiusLG,
               marginTop: 16,
             }}
           >
             {steps[current].content}
           </div>
 
-          <Flex justify="space-between" style={{ marginTop: "1rem" }}>
-            {current > 0 ? (
-              <Button size="large" icon={<ArrowLeftOutlined />} type="primary" onClick={prev} />
-            ) : (
-              <div></div>
-            )}
-            {current < steps.length - 1 && (
-              <Button size="large" icon={<ArrowRightOutlined />} type="primary" onClick={next} />
-            )}
-            {current === steps.length - 1 && (
-              <Button size="large" type="primary" htmlType="submit">
-                Done
-              </Button>
-            )}
-          </Flex>
+          <NavButton current={current} steps={steps} next={next} prev={prev} />
         </Form>
       </FormProvider>
     </GeneralLayout>
