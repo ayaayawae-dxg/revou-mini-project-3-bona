@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { GeneralLayout } from "layouts";
-import { Form, Steps, theme } from "antd";
+import { Form, Steps } from "antd";
 import { FormProvider, useForm } from "react-hook-form";
 import PersonalInformation from "./components/Form/PersonalInformation";
 import AddressInformation from "./components/Form/AddressInformation";
 import AccountInformation from "./components/Form/AccountInformation";
 import NavButton from "./components/molecules/NavButton";
+import ModalResult from "./components/molecules/ModalResult";
 
 const steps = [
   {
@@ -37,12 +38,14 @@ type FormData = {
 
 const Home = () => {
   const methods = useForm<FormData>();
-  const { token } = theme.useToken();
   const [current, setCurrent] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOk = () => setIsModalOpen(false);
+  const handleCancel = () => setIsModalOpen(false);
 
   const next = () => {
     methods.handleSubmit((data) => {
-      console.log(data);
       setCurrent(current + 1);
     })();
   };
@@ -53,11 +56,15 @@ const Home = () => {
 
   const items = steps.map((item) => ({ key: item.title, title: item.title }));
 
-  const onSubmit = (data: FormData) => console.log(data);
+  const onSubmit = (data: FormData) => {
+    setIsModalOpen(true)
+  };
 
   return (
     <GeneralLayout>
       <FormProvider {...methods}>
+        <ModalResult isModalOpen={isModalOpen} handleOk={handleOk} handleCancel={handleCancel} />
+
         <Form
           labelCol={{ span: 6 }}
           wrapperCol={{ span: "100%" }}

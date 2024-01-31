@@ -16,13 +16,15 @@ function App() {
             fontSize: 20,
           },
           Select: {
-            colorBgElevated: "#00011e",
+            colorBgElevated: "#313256",
             optionSelectedColor: "black",
-            fontSize: 20
+            fontSize: 20,
+            optionActiveBg: "#341eff",
           },
-          Input: {
-            activeBorderColor: "red"
-          },
+          Modal: {
+            contentBg: "#313256",
+            headerBg: "#313256",
+          }
         },
       }}
     >
