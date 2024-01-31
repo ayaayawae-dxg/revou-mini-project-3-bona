@@ -3,6 +3,7 @@ import { GeneralLayout } from "layouts";
 import { Button, Flex, Form, Input, Steps, message, theme } from "antd";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import PersonalInformation from "./components/Form/PersonalInformation";
+import AddressInformation from "./components/Form/AddressInformation";
 
 const steps = [
   {
@@ -11,7 +12,7 @@ const steps = [
   },
   {
     title: "Address Information",
-    content: "Second-content",
+    content: <AddressInformation />,
   },
   {
     title: "Account Information",

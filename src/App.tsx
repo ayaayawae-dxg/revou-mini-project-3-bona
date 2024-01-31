@@ -12,8 +12,12 @@ function App() {
         components: {
           DatePicker: {
             colorBgElevated: '#00011e',
-            activeBg: '00011e',
+            activeBg: '#00011e',
           },
+          Select: {
+            colorBgElevated: "#00011e",
+            optionSelectedColor: "black"
+          }
         },
       }}
     >
