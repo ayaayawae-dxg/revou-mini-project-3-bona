@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { GeneralLayout } from "layouts";
 import { Form, Steps } from "antd";
 import { FormProvider, useForm } from "react-hook-form";
+import { useSetRecoilState } from "recoil";
+import { registrationState } from "store";
+
 import PersonalInformation from "./components/Form/PersonalInformation";
 import AddressInformation from "./components/Form/AddressInformation";
 import AccountInformation from "./components/Form/AccountInformation";
 import NavButton from "./components/molecules/NavButton";
-import ModalResult from "./components/molecules/ModalResult";
 
 const steps = [
   {
@@ -23,26 +25,10 @@ const steps = [
   },
 ];
 
-type FormData = {
-  firstName: string;
-  email: string;
-  birthDate: Date;
-  streetAddress: string;
-  state: string;
-  city: string;
-  zipCode: string;
-  username: string;
-  password: string;
-  rePassword: string;
-};
-
 const Home = () => {
-  const methods = useForm<FormData>();
-  const [current, setCurrent] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleOk = () => setIsModalOpen(false);
-  const handleCancel = () => setIsModalOpen(false);
+  const methods = useForm<DRegistration>();
+  const [current, setCurrent] = useState<number>(0);
+  const setRegistrationValue = useSetRecoilState(registrationState);
 
   const next = () => {
     methods.handleSubmit((data) => {
@@ -56,15 +42,11 @@ const Home = () => {
 
   const items = steps.map((item) => ({ key: item.title, title: item.title }));
 
-  const onSubmit = (data: FormData) => {
-    setIsModalOpen(true)
-  };
+  const onSubmit = (data: DRegistration) => setRegistrationValue(data);
 
   return (
     <GeneralLayout>
       <FormProvider {...methods}>
-        <ModalResult isModalOpen={isModalOpen} handleOk={handleOk} handleCancel={handleCancel} />
-
         <Form
           labelCol={{ span: 6 }}
           wrapperCol={{ span: "100%" }}
@@ -72,13 +54,7 @@ const Home = () => {
         >
           <Steps current={current} items={items} />
 
-          <div
-            style={{
-              marginTop: 16,
-            }}
-          >
-            {steps[current].content}
-          </div>
+          <div style={{ marginTop: 16 }}>{steps[current].content}</div>
 
           <NavButton current={current} steps={steps} next={next} prev={prev} />
         </Form>

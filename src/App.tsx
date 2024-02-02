@@ -1,5 +1,6 @@
 import { ConfigProvider } from 'antd';
 import { Home } from 'pages';
+import { RecoilRoot } from 'recoil';
 
 function App() {
   return (
@@ -28,7 +29,9 @@ function App() {
         },
       }}
     >
-      <Home />
+      <RecoilRoot>
+        <Home />
+      </RecoilRoot>
     </ConfigProvider>
   );
 }

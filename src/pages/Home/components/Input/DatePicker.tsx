@@ -1,7 +1,7 @@
 import React from "react";
 import { DatePicker as CustomDatePicker } from "antd";
 
-const DatePicker = ({ ...rest }: any) => {
+const DatePicker = ({ ...rest }) => {
   return (
     <CustomDatePicker
       variant="filled"
