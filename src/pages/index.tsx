@@ -1,7 +1,7 @@
 import Home from "./Home"
-import Result from "./Result"
+import Dashboard from "./Dashboard"
 
 export {
   Home,
-  Result
+  Dashboard
 }

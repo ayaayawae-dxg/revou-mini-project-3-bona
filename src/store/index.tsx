@@ -1,8 +1,7 @@
 import { atom } from "recoil";
 
-const registrationState = atom<DRegistration | null>({
+const registrationState = atom<DRegistration>({
   key: "registration",
-  default: null,
 });
 
 export { registrationState };

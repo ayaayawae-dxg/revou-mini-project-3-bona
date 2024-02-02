@@ -9,6 +9,7 @@ import PersonalInformation from "./components/Form/PersonalInformation";
 import AddressInformation from "./components/Form/AddressInformation";
 import AccountInformation from "./components/Form/AccountInformation";
 import NavButton from "./components/molecules/NavButton";
+import { useNavigate } from "react-router-dom";
 
 const steps = [
   {
@@ -26,6 +27,7 @@ const steps = [
 ];
 
 const Home = () => {
+  const navigate = useNavigate()
   const methods = useForm<DRegistration>();
   const [current, setCurrent] = useState<number>(0);
   const setRegistrationValue = useSetRecoilState(registrationState);
@@ -42,7 +44,10 @@ const Home = () => {
 
   const items = steps.map((item) => ({ key: item.title, title: item.title }));
 
-  const onSubmit = (data: DRegistration) => setRegistrationValue(data);
+  const onSubmit = (data: DRegistration) => {
+    setRegistrationValue(data)
+    navigate('dashboard')
+  };
 
   return (
     <FormProvider {...methods}>
