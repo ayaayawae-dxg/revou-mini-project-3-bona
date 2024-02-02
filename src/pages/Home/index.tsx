@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { GeneralLayout } from "layouts";
 import { Form, Steps } from "antd";
 import { FormProvider, useForm } from "react-hook-form";
@@ -10,28 +10,32 @@ import AddressInformation from "./components/Form/AddressInformation";
 import AccountInformation from "./components/Form/AccountInformation";
 import NavButton from "./components/molecules/NavButton";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
-const steps = [
-  {
-    title: "Personal Information",
-    content: <PersonalInformation />,
-  },
-  {
-    title: "Address Information",
-    content: <AddressInformation />,
-  },
-  {
-    title: "Account Information",
-    content: <AccountInformation />,
-  },
-];
+
 
 const Home = () => {
   const navigate = useNavigate()
   const methods = useForm<DRegistration>();
   const [current, setCurrent] = useState<number>(0);
   const setRegistrationValue = useSetRecoilState(registrationState);
+  const { t } = useTranslation();
 
+  const steps = [
+    {
+      title: t("form.page.1.title"),
+      content: <PersonalInformation />,
+    },
+    {
+      title: t("form.page.2.title"),
+      content: <AddressInformation />,
+    },
+    {
+      title: t("form.page.3.title"),
+      content: <AccountInformation />,
+    },
+  ]
+  
   const next = () => {
     methods.handleSubmit((data) => {
       setCurrent(current + 1);

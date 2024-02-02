@@ -4,8 +4,11 @@ import Input from "../Input/Input";
 import Password from "../Input/Password";
 import Label from "../Input/Label";
 import ErrorMessage from "../Input/ErrorMessage";
+import { useTranslation } from "react-i18next";
 
 const AccountInformation = () => {
+  const { t } = useTranslation();
+
   const {
     control,
     watch,
@@ -14,13 +17,13 @@ const AccountInformation = () => {
 
   return (
     <div>
-      <Label label="Username">
+      <Label label={t("form.page.3.field.1")}>
         <Controller
           name="username"
           control={control}
-          rules={{ required: "Username is required" }}
+          rules={{ required: t("form.page.3.field.1.required") }}
           render={({ field: { ref, ...field } }) => (
-            <Input {...field} placeholder="Username" />
+            <Input {...field} placeholder={t("form.page.3.field.1")} />
           )}
         />
         {errors.username && (
@@ -28,29 +31,27 @@ const AccountInformation = () => {
         )}
       </Label>
 
-      <Label label="Password">
+      <Label label={t("form.page.3.field.2")}>
         <Controller
           name="password"
           control={control}
           rules={{
-            required: "Password is required",
+            required: t("form.page.3.field.2.required"),
             minLength: {
               value: 8,
-              message: "Password must be at least 8 characters",
+              message: t("form.page.3.field.2.minLength"),
             },
             validate: {
               hasLower: (value) =>
-                /[a-z]/.test(value) ||
-                "Password must contain a lower case letter",
+                /[a-z]/.test(value) || t("form.page.3.field.2.hasLower"),
               hasUpper: (value) =>
-                /[A-Z]/.test(value) ||
-                "Password must contain an upper case letter",
+                /[A-Z]/.test(value) || t("form.page.3.field.2.hasUpper"),
               hasSymbol: (value) =>
-                /\W/.test(value) || "Password must contain a symbol",
+                /\W/.test(value) || t("form.page.3.field.2.hasSymbol"),
             },
           }}
           render={({ field: { ref, ...field } }) => (
-            <Password {...field} placeholder="Password" />
+            <Password {...field} placeholder={t("form.page.3.field.2")} />
           )}
         />
         {errors.password && (
@@ -58,20 +59,19 @@ const AccountInformation = () => {
         )}
       </Label>
 
-      <Label label="Re-Password">
+      <Label label={t("form.page.3.field.3")}>
         <Controller
           name="rePassword"
           control={control}
           rules={{
-            required: "Re-Password is required",
+            required: t("form.page.3.field.3.required"),
             validate: {
               isMatch: (value) =>
-                watch("password") === value ||
-                "Password must be match",
+                watch("password") === value || t("form.page.3.field.3.isMatch"),
             },
           }}
           render={({ field: { ref, ...field } }) => (
-            <Password {...field} placeholder="Re-Password" />
+            <Password {...field} placeholder={t("form.page.3.field.3")} />
           )}
         />
         {errors.rePassword && (

@@ -1,0 +1,42 @@
+{
+  "header": "Pendaftaran Digicamp",
+
+  "form.page.1.title": "Informasi Pribadi",
+  "form.page.2.title": "Informasi Alamat",
+  "form.page.3.title": "Informasi Akun",
+
+  "form.page.1.field.1": "Nama Depan",
+  "form.page.1.field.1.required": "Nama depan wajib diisi",
+  "form.page.1.field.2": "Email",
+  "form.page.1.field.2.required": "Email wajib diisi",
+  "form.page.1.field.2.pattern": "Email tidak valid",
+  "form.page.1.field.3": "Tanggal Lahir",
+  "form.page.1.field.3.required": "Tanggal lahir wajib diisi",
+  "form.page.1.field.3.isBeforeNow": "Tanggal lahir tidak valid",
+
+  "form.page.2.field.1": "Alamat",
+  "form.page.2.field.1.required": "Alamat wajib diisi",
+  "form.page.2.field.2": "Provinsi",
+  "form.page.2.field.2.required": "Provinsi wajib diisi",
+  "form.page.2.field.3": "Kota",
+  "form.page.2.field.3.required": "Kota wajib diisi",
+  "form.page.2.field.4": "Kode Pos",
+  "form.page.2.field.4.required": "Kode pos wajib diisi",
+  "form.page.2.field.4.pattern": "Kode pos tidak valid (Contoh: 12345-1234)",
+
+  "form.page.3.field.1": "Nama Pengguna",
+  "form.page.3.field.1.required": "Nama pengguna wajib diisi",
+  "form.page.3.field.2": "Kata Sandi",
+  "form.page.3.field.2.required": "Kata sandi wajib diisi",
+  "form.page.3.field.2.minLength": "Kata sandi minimal 8 karakter",
+  "form.page.3.field.2.hasLower": "Kata sandi harus mengandung huruf kecil",
+  "form.page.3.field.2.hasUpper": "Kata sandi harus mengandung huruf besar",
+  "form.page.3.field.2.hasSymbol": "Kata sandi harus mengandung simbol",
+  "form.page.3.field.3": "Ulangi Kata Sandi",
+  "form.page.3.field.3.required": "Ulangi kata sandi wajib diisi",
+  "form.page.3.field.3.isMatch": "Kata sandi harus sama",
+  "form.page.3.submit": "Selesai",
+
+  "dashboard.title": "Pendaftaran Selesai!",
+  "dashboard.subTitle": "Halo"
+}

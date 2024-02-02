@@ -7,6 +7,7 @@ import Select from "../Input/Select";
 import Input from "../Input/Input";
 import Label from "../Input/Label";
 import ErrorMessage from "../Input/ErrorMessage";
+import { useTranslation } from "react-i18next";
 
 const AddressInformation = () => {
   const {
@@ -15,16 +16,17 @@ const AddressInformation = () => {
     setValue,
     formState: { errors },
   } = useFormContext();
+  const { t } = useTranslation();
 
   return (
     <div>
-      <Label label="Street Address">
+      <Label label={t("form.page.2.field.1")}>
         <Controller
           name="streetAddress"
           control={control}
-          rules={{ required: "Street Address is required" }}
+          rules={{ required: t("form.page.2.field.1.required") }}
           render={({ field: { ref, ...field } }) => (
-            <TextArea {...field} placeholder="Street Address" />
+            <TextArea {...field} placeholder={t("form.page.2.field.1")} />
           )}
         />
         {errors.streetAddress && (
@@ -32,11 +34,11 @@ const AddressInformation = () => {
         )}
       </Label>
 
-      <Label label="State">
+      <Label label={t("form.page.2.field.2")}>
         <Controller
           name="state"
           control={control}
-          rules={{ required: "State is required" }}
+          rules={{ required: t("form.page.2.field.2.required") }}
           render={({ field: { ref, onChange, ...field } }) => (
             <Select
               {...field}
@@ -44,7 +46,7 @@ const AddressInformation = () => {
                 label: state,
                 value: state,
               }))}
-              placeholder="State"
+              placeholder={t("form.page.2.field.2")}
               onChange={(e) => {
                 onChange(e);
                 setValue("city", "");
@@ -57,11 +59,11 @@ const AddressInformation = () => {
         )}
       </Label>
 
-      <Label label="City">
+      <Label label={t("form.page.2.field.3")}>
         <Controller
           name="city"
           control={control}
-          rules={{ required: "City is required" }}
+          rules={{ required: t("form.page.2.field.3.required") }}
           render={({ field: { ref, ...field } }) => (
             <Select
               {...field}
@@ -75,28 +77,26 @@ const AddressInformation = () => {
                     )
                   : []
               }
-              placeholder="City"
+              placeholder={t("form.page.2.field.3")}
             />
           )}
         />
-        {errors.city && (
-          <ErrorMessage>{`${errors.city.message}`}</ErrorMessage>
-        )}
+        {errors.city && <ErrorMessage>{`${errors.city.message}`}</ErrorMessage>}
       </Label>
 
-      <Label label="Zip Code">
+      <Label label={t("form.page.2.field.4")}>
         <Controller
           name="zipCode"
           control={control}
           rules={{
-            required: "Zip Code is required",
+            required: t("form.page.2.field.4.required"),
             pattern: {
               value: /^[0-9]{5}-[0-9]{4}$/,
-              message: "Zip Code is not valid (Example: 12345-1234)",
+              message: t("form.page.2.field.4.pattern"),
             },
           }}
           render={({ field: { ref, ...field } }) => (
-            <Input {...field} placeholder="Zip Code (Example: 12345-1234)" />
+            <Input {...field} placeholder={t("form.page.2.field.4")} />
           )}
         />
         {errors.zipCode && (

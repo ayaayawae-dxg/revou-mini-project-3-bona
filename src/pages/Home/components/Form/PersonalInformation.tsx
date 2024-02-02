@@ -5,8 +5,11 @@ import Input from "../Input/Input";
 import DatePicker from "../Input/DatePicker";
 import Label from "../Input/Label";
 import ErrorMessage from "../Input/ErrorMessage";
+import { useTranslation } from "react-i18next";
 
 const PersonalInformation = () => {
+  const { t } = useTranslation();
+
   const {
     control,
     formState: { errors },
@@ -14,13 +17,13 @@ const PersonalInformation = () => {
 
   return (
     <div>
-      <Label label="First Name">
+      <Label label={t("form.page.1.field.1")}>
         <Controller
           name="firstName"
           control={control}
-          rules={{ required: "First name is required" }}
+          rules={{ required: t("form.page.1.field.1.required") }}
           render={({ field: { ref, ...field } }) => (
-            <Input {...field} placeholder="First Name" />
+            <Input {...field} placeholder={t("form.page.1.field.1")} />
           )}
         />
         {errors.firstName && (
@@ -28,19 +31,19 @@ const PersonalInformation = () => {
         )}
       </Label>
 
-      <Label label="Email">
+      <Label label={t("form.page.1.field.2")}>
         <Controller
           name="email"
           control={control}
           rules={{
-            required: "Email is required",
+            required: t("form.page.1.field.2.required"),
             pattern: {
               value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-              message: "Email is not valid",
+              message: t("form.page.1.field.2.pattern"),
             },
           }}
           render={({ field: { ref, ...field } }) => (
-            <Input {...field} placeholder="Email" />
+            <Input {...field} placeholder={t("form.page.1.field.2")} />
           )}
         />
         {errors.email && (
@@ -48,7 +51,7 @@ const PersonalInformation = () => {
         )}
       </Label>
 
-      <Label label="Date of Birth">
+      <Label label={t("form.page.1.field.3")}>
         <Controller
           name="birthDate"
           control={control}
@@ -58,14 +61,16 @@ const PersonalInformation = () => {
                 const now = moment();
                 const birthDate = moment(value.toString());
                 if (birthDate.isAfter(now)) {
-                  return "Date of Birth is not valid";
+                  return t("form.page.1.field.3.isBeforeNow");
                 }
                 return true;
               },
             },
-            required: "Date of Birth is required",
+            required: t("form.page.1.field.3.required"),
           }}
-          render={({ field: { ref, ...field } }) => <DatePicker {...field} />}
+          render={({ field: { ref, ...field } }) => (
+            <DatePicker placeholder={t("form.page.1.field.3")} {...field} />
+          )}
         />
         {errors.birthDate && (
           <ErrorMessage>{`${errors.birthDate.message}`}</ErrorMessage>

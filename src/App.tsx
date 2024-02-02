@@ -3,6 +3,7 @@ import { RouterProvider } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 import router from "router";
 import theme from "theme";
+import "./locales"
 
 function App() {
   return (

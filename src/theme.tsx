@@ -18,6 +18,11 @@ const theme = {
     Modal: {
       contentBg: "#313256",
       headerBg: "#313256",
+    },
+    Segmented: {
+      trackBg: "#313256",
+      itemSelectedBg: "white",
+      itemSelectedColor: "#341eff",
     }
   },
 }

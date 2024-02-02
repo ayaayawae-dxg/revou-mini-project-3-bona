@@ -1,0 +1,42 @@
+{
+  "header": "Digicamp Registration",
+
+  "form.page.1.title": "Personal Information",
+  "form.page.2.title": "Address Information",
+  "form.page.3.title": "Account Information",
+
+  "form.page.1.field.1": "First Name",
+  "form.page.1.field.1.required": "First name is required",
+  "form.page.1.field.2": "Email",
+  "form.page.1.field.2.required": "Email is required",
+  "form.page.1.field.2.pattern": "Email is not valid",
+  "form.page.1.field.3": "Date of Birth",
+  "form.page.1.field.3.required": "Date of Birth is required",
+  "form.page.1.field.3.isBeforeNow": "Date of Birth is not valid",
+
+  "form.page.2.field.1": "Street Address",
+  "form.page.2.field.1.required": "Street Address is required",
+  "form.page.2.field.2": "State",
+  "form.page.2.field.2.required": "State is required",
+  "form.page.2.field.3": "City",
+  "form.page.2.field.3.required": "City is required",
+  "form.page.2.field.4": "Zip Code",
+  "form.page.2.field.4.required": "Zip Code is required",
+  "form.page.2.field.4.pattern": "Zip Code is not valid (Example: 12345-1234)",
+
+  "form.page.3.field.1": "Username",
+  "form.page.3.field.1.required": "Username is required",
+  "form.page.3.field.2": "Password",
+  "form.page.3.field.2.required": "Password is required",
+  "form.page.3.field.2.minLength": "Password must be at least 8 characters",
+  "form.page.3.field.2.hasLower": "Password must contain a lower case letter",
+  "form.page.3.field.2.hasUpper": "Password must contain an upper case letter",
+  "form.page.3.field.2.hasSymbol": "Password must contain a symbol",
+  "form.page.3.field.3": "Re-Password",
+  "form.page.3.field.3.required": "Re-Password is required",
+  "form.page.3.field.3.isMatch": "Password must be match",
+  "form.page.3.submit": "Done",
+
+  "dashboard.title": "Registration Completed !",
+  "dashboard.subTitle": "Hello"
+}
