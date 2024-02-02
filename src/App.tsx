@@ -1,36 +1,14 @@
-import { ConfigProvider } from 'antd';
-import { Home } from 'pages';
-import { RecoilRoot } from 'recoil';
+import { ConfigProvider } from "antd";
+import { RouterProvider } from "react-router-dom";
+import { RecoilRoot } from "recoil";
+import router from "router";
+import theme from "theme";
 
 function App() {
   return (
-    <ConfigProvider
-      theme={{
-        token: {
-          colorPrimary: "#341eff",
-          colorTextBase: "white"
-        },
-        components: {
-          DatePicker: {
-            colorBgElevated: '#00011e',
-            activeBg: '#00011e',
-            fontSize: 20,
-          },
-          Select: {
-            colorBgElevated: "#313256",
-            optionSelectedColor: "black",
-            fontSize: 20,
-            optionActiveBg: "#341eff",
-          },
-          Modal: {
-            contentBg: "#313256",
-            headerBg: "#313256",
-          }
-        },
-      }}
-    >
+    <ConfigProvider theme={theme}>
       <RecoilRoot>
-        <Home />
+        <RouterProvider router={router} />
       </RecoilRoot>
     </ConfigProvider>
   );

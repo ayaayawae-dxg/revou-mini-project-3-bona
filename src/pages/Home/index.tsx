@@ -45,21 +45,19 @@ const Home = () => {
   const onSubmit = (data: DRegistration) => setRegistrationValue(data);
 
   return (
-    <GeneralLayout>
-      <FormProvider {...methods}>
-        <Form
-          labelCol={{ span: 6 }}
-          wrapperCol={{ span: "100%" }}
-          onFinish={methods.handleSubmit(onSubmit)}
-        >
-          <Steps current={current} items={items} />
+    <FormProvider {...methods}>
+      <Form
+        labelCol={{ span: 6 }}
+        wrapperCol={{ span: "100%" }}
+        onFinish={methods.handleSubmit(onSubmit)}
+      >
+        <Steps current={current} items={items} />
 
-          <div style={{ marginTop: 16 }}>{steps[current].content}</div>
+        <div style={{ marginTop: 16 }}>{steps[current].content}</div>
 
-          <NavButton current={current} steps={steps} next={next} prev={prev} />
-        </Form>
-      </FormProvider>
-    </GeneralLayout>
+        <NavButton current={current} steps={steps} next={next} prev={prev} />
+      </Form>
+    </FormProvider>
   );
 };
 

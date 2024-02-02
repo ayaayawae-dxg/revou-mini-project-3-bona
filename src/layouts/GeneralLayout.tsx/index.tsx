@@ -1,14 +1,10 @@
 import { Layout } from "antd";
 import { Footer, Header } from "components";
-import React from "react";
+import { Outlet } from "react-router-dom";
 
 const { Content } = Layout;
 
-type Props = {
-  children: React.ReactNode;
-};
-
-const GeneralLayout = ({ children }: Props) => {
+const GeneralLayout = () => {
   return (
     <Layout
       style={{
@@ -22,7 +18,7 @@ const GeneralLayout = ({ children }: Props) => {
     >
       <Header />
       <Content style={{ overflow: "auto", padding: "3rem 1rem" }}>
-        {children}
+        <Outlet />
       </Content>
       <Footer />
     </Layout>
