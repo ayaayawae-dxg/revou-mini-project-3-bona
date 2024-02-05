@@ -21,8 +21,8 @@ const theme = {
     },
     Segmented: {
       trackBg: "#313256",
-      itemSelectedBg: "white",
-      itemSelectedColor: "#341eff",
+      itemSelectedBg: "#ffffff",
+      itemSelectedColor: "#313256",
     }
   },
 }

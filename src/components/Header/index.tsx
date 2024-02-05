@@ -23,9 +23,15 @@ const Header = () => {
     >
       <Segmented
         style={{ position: "absolute", top: 10, right: 10 }}
-        options={["EN", "ID"]}
+        options={[
+          { label: "EN", value: "en" },
+          { label: "ID", value: "id" },
+        ]}
         value={lang}
-        onChange={(e) => i18n.changeLanguage(e.toString().toLowerCase())}
+        onChange={(e) => {
+          setLang(e.toString());
+          i18n.changeLanguage(e.toString())
+        }}
       />
       {t("header")}
     </CustomHeader>
