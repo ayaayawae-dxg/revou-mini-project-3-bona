@@ -18,7 +18,7 @@ jest.mock("react-i18next", () => ({
 }));
 
 describe("Dashboard", () => {
-  it("renders dashboard with registration information", () => {
+  it("renders dashboard with registered information", () => {
     const registration = {
       firstName: "John",
     };

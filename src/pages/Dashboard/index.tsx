@@ -1,7 +1,7 @@
 import { Result } from "antd";
 import { SmileOutlined } from "@ant-design/icons";
 import { useRecoilValue } from "recoil";
-import { registrationState } from "store";
+import { registrationState } from "../../store";
 import { useTranslation } from "react-i18next";
 
 const Dashboard = () => {
