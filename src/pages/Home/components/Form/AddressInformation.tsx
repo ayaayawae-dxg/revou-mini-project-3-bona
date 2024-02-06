@@ -19,7 +19,7 @@ const AddressInformation = () => {
   const { t } = useTranslation();
 
   return (
-    <div>
+    <>
       <Label label={t("form.page.2.field.1")}>
         <Controller
           name="streetAddress"
@@ -49,7 +49,7 @@ const AddressInformation = () => {
               placeholder={t("form.page.2.field.2")}
               onChange={(e) => {
                 onChange(e);
-                setValue("city", "");
+                setValue("city", null);
               }}
             />
           )}
@@ -103,7 +103,7 @@ const AddressInformation = () => {
           <ErrorMessage>{`${errors.zipCode.message}`}</ErrorMessage>
         )}
       </Label>
-    </div>
+    </>
   );
 };
 

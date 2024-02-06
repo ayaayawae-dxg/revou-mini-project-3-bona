@@ -16,7 +16,7 @@ const AccountInformation = () => {
   } = useFormContext();
 
   return (
-    <div>
+    <>
       <Label label={t("form.page.3.field.1")}>
         <Controller
           name="username"
@@ -78,7 +78,7 @@ const AccountInformation = () => {
           <ErrorMessage>{`${errors.rePassword.message}`}</ErrorMessage>
         )}
       </Label>
-    </div>
+    </>
   );
 };
 

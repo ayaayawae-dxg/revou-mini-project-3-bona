@@ -18,6 +18,7 @@ const NavButton = ({ current, steps, next, prev }: Props) => {
         <Button
           size="large"
           icon={<ArrowLeftOutlined />}
+          data-testid="prev"
           type="primary"
           onClick={prev}
         />
@@ -28,6 +29,7 @@ const NavButton = ({ current, steps, next, prev }: Props) => {
         <Button
           size="large"
           icon={<ArrowRightOutlined />}
+          data-testid="next"
           type="primary"
           onClick={next}
         />

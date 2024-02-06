@@ -16,7 +16,7 @@ const PersonalInformation = () => {
   } = useFormContext();
 
   return (
-    <div>
+    <>
       <Label label={t("form.page.1.field.1")}>
         <Controller
           name="firstName"
@@ -76,7 +76,7 @@ const PersonalInformation = () => {
           <ErrorMessage>{`${errors.birthDate.message}`}</ErrorMessage>
         )}
       </Label>
-    </div>
+    </>
   );
 };
 
