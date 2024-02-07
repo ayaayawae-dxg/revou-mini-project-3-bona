@@ -5,6 +5,7 @@ import Password from "../Input/Password";
 import Label from "../Input/Label";
 import ErrorMessage from "../Input/ErrorMessage";
 import { useTranslation } from "react-i18next";
+import NavButton from "../molecules/NavButton";
 
 const AccountInformation = () => {
   const { t } = useTranslation();
