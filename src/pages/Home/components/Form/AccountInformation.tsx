@@ -18,13 +18,17 @@ const AccountInformation = () => {
 
   return (
     <>
-      <Label label={t("form.page.3.field.1")}>
+      <Label label={t("form.page.3.field.1")} name={"username"}>
         <Controller
           name="username"
           control={control}
           rules={{ required: t("form.page.3.field.1.required") }}
-          render={({ field: { ref, ...field } }) => (
-            <Input {...field} placeholder={t("form.page.3.field.1")} />
+          render={({ field: { ref, name, ...field } }) => (
+            <Input
+              {...field}
+              name={name}
+              placeholder={t("form.page.3.field.1")}
+            />
           )}
         />
         {errors.username && (
@@ -32,7 +36,7 @@ const AccountInformation = () => {
         )}
       </Label>
 
-      <Label label={t("form.page.3.field.2")}>
+      <Label label={t("form.page.3.field.2")} name={"password"}>
         <Controller
           name="password"
           control={control}
@@ -51,8 +55,12 @@ const AccountInformation = () => {
                 /\W/.test(value) || t("form.page.3.field.2.hasSymbol"),
             },
           }}
-          render={({ field: { ref, ...field } }) => (
-            <Password {...field} placeholder={t("form.page.3.field.2")} />
+          render={({ field: { ref, name, ...field } }) => (
+            <Password
+              {...field}
+              name={name}
+              placeholder={t("form.page.3.field.2")}
+            />
           )}
         />
         {errors.password && (
@@ -60,7 +68,7 @@ const AccountInformation = () => {
         )}
       </Label>
 
-      <Label label={t("form.page.3.field.3")}>
+      <Label label={t("form.page.3.field.3")} name={"rePassword"}>
         <Controller
           name="rePassword"
           control={control}
@@ -71,8 +79,12 @@ const AccountInformation = () => {
                 watch("password") === value || t("form.page.3.field.3.isMatch"),
             },
           }}
-          render={({ field: { ref, ...field } }) => (
-            <Password {...field} placeholder={t("form.page.3.field.3")} />
+          render={({ field: { ref, name, ...field } }) => (
+            <Password
+              {...field}
+              name={name}
+              placeholder={t("form.page.3.field.3")}
+            />
           )}
         />
         {errors.rePassword && (

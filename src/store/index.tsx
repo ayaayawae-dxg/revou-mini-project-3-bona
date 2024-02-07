@@ -1,3 +1,4 @@
+import { DRegistration } from "database";
 import { atom } from "recoil";
 
 const registrationState = atom<DRegistration>({

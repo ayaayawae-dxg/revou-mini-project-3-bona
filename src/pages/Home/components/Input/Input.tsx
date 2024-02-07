@@ -2,10 +2,11 @@ import React from "react";
 import { Input as CustomInput } from "antd";
 
 type Props = {
+  name: string;
   placeholder: string;
 };
 
-const Input = ({ placeholder, ...rest }: Props) => {
+const Input = ({ placeholder, name, ...rest }: Props) => {
   return (
     <CustomInput
       style={{
@@ -16,6 +17,7 @@ const Input = ({ placeholder, ...rest }: Props) => {
       }}
       variant="borderless"
       placeholder={placeholder}
+      id={name}
       {...rest}
     />
   );

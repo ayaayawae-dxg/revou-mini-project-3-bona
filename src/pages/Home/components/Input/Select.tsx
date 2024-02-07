@@ -7,10 +7,11 @@ type Props = {
     label: string;
     value: string;
   }[]
+  name: string;
   onChange: (e: any) => void;
 };
 
-const Select = ({ placeholder, options, onChange, ...rest }: Props) => {
+const Select = ({ placeholder, options, name, onChange, ...rest }: Props) => {
   return (
     <CustomSelect
       style={{
@@ -23,6 +24,7 @@ const Select = ({ placeholder, options, onChange, ...rest }: Props) => {
       placeholder={placeholder}
       options={options}
       onChange={onChange}
+      id={name}
       {...rest}
     />
   );

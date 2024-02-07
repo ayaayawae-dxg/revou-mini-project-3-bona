@@ -3,9 +3,10 @@ import { Input as CustomInput } from "antd";
 
 type Props = {
   placeholder: string;
+  name: string;
 };
 
-const Password = ({ placeholder, ...rest }: Props) => {
+const Password = ({ placeholder, name, ...rest }: Props) => {
   return (
     <CustomInput.Password
       style={{
@@ -16,6 +17,7 @@ const Password = ({ placeholder, ...rest }: Props) => {
       }}
       variant="borderless"
       placeholder={placeholder}
+      id={name}
       {...rest}
     />
   );

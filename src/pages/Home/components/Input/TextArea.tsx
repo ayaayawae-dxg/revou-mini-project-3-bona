@@ -3,9 +3,10 @@ import { Input as CustomInput } from "antd";
 
 type Props = {
   placeholder: string;
+  name: string;
 };
 
-const TextArea = ({ placeholder, ...rest }: Props) => {
+const TextArea = ({ placeholder, name, ...rest }: Props) => {
   return (
     <CustomInput.TextArea
       style={{
@@ -16,6 +17,7 @@ const TextArea = ({ placeholder, ...rest }: Props) => {
       }}
       variant="borderless"
       placeholder={placeholder}
+      id="name"
       {...rest}
     />
   );

@@ -1,14 +1,16 @@
 import React, { lazy, useState } from "react";
-import { Form, Steps } from "antd";
+import { Button, Form, Steps } from "antd";
 import { FormProvider, useForm } from "react-hook-form";
 import { useSetRecoilState } from "recoil";
 import { registrationState } from "store";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { DRegistration } from "database";
 
 import PersonalInformation from "./components/Form/PersonalInformation";
 import AddressInformation from "./components/Form/AddressInformation";
 import AccountInformation from "./components/Form/AccountInformation";
+
 const NavButton = lazy(() => import("./components/molecules/NavButton"));
 
 const Home = () => {

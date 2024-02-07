@@ -23,6 +23,9 @@ const theme = {
       trackBg: "#313256",
       itemSelectedBg: "#ffffff",
       itemSelectedColor: "#313256",
+    },
+    Form: {
+      labelFontSize: 20
     }
   },
 }

@@ -20,13 +20,17 @@ const AddressInformation = () => {
 
   return (
     <>
-      <Label label={t("form.page.2.field.1")}>
+      <Label label={t("form.page.2.field.1")} name={"streetAddress"}>
         <Controller
           name="streetAddress"
           control={control}
           rules={{ required: t("form.page.2.field.1.required") }}
-          render={({ field: { ref, ...field } }) => (
-            <TextArea {...field} placeholder={t("form.page.2.field.1")} />
+          render={({ field: { ref, name, ...field } }) => (
+            <TextArea
+              {...field}
+              name={name}
+              placeholder={t("form.page.2.field.1")}
+            />
           )}
         />
         {errors.streetAddress && (
@@ -34,14 +38,15 @@ const AddressInformation = () => {
         )}
       </Label>
 
-      <Label label={t("form.page.2.field.2")}>
+      <Label label={t("form.page.2.field.2")} name={"state"}>
         <Controller
           name="state"
           control={control}
           rules={{ required: t("form.page.2.field.2.required") }}
-          render={({ field: { ref, onChange, ...field } }) => (
+          render={({ field: { ref, onChange, name, ...field } }) => (
             <Select
               {...field}
+              name={name}
               options={Object.keys(STATE_CITY).map((state) => ({
                 label: state,
                 value: state,
@@ -59,12 +64,12 @@ const AddressInformation = () => {
         )}
       </Label>
 
-      <Label label={t("form.page.2.field.3")}>
+      <Label label={t("form.page.2.field.3")} name="city">
         <Controller
           name="city"
           control={control}
           rules={{ required: t("form.page.2.field.3.required") }}
-          render={({ field: { ref, ...field } }) => (
+          render={({ field: { ref, name, ...field } }) => (
             <Select
               {...field}
               options={
@@ -78,13 +83,14 @@ const AddressInformation = () => {
                   : []
               }
               placeholder={t("form.page.2.field.3")}
+              name={name}
             />
           )}
         />
         {errors.city && <ErrorMessage>{`${errors.city.message}`}</ErrorMessage>}
       </Label>
 
-      <Label label={t("form.page.2.field.4")}>
+      <Label label={t("form.page.2.field.4")} name={"zipCode"}>
         <Controller
           name="zipCode"
           control={control}
@@ -95,8 +101,12 @@ const AddressInformation = () => {
               message: t("form.page.2.field.4.pattern"),
             },
           }}
-          render={({ field: { ref, ...field } }) => (
-            <Input {...field} placeholder={t("form.page.2.field.4")} />
+          render={({ field: { ref, name, ...field } }) => (
+            <Input
+              {...field}
+              name={name}
+              placeholder={t("form.page.2.field.4")}
+            />
           )}
         />
         {errors.zipCode && (

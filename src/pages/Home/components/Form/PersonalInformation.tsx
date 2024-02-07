@@ -17,13 +17,17 @@ const PersonalInformation = () => {
 
   return (
     <>
-      <Label label={t("form.page.1.field.1")}>
+      <Label label={t("form.page.1.field.1")} name={"firstName"}>
         <Controller
           name="firstName"
           control={control}
           rules={{ required: t("form.page.1.field.1.required") }}
-          render={({ field: { ref, ...field } }) => (
-            <Input {...field} placeholder={t("form.page.1.field.1")} />
+          render={({ field: { ref, name, ...field } }) => (
+            <Input
+              {...field}
+              name={name}
+              placeholder={t("form.page.1.field.1")}
+            />
           )}
         />
         {errors.firstName && (
@@ -31,7 +35,7 @@ const PersonalInformation = () => {
         )}
       </Label>
 
-      <Label label={t("form.page.1.field.2")}>
+      <Label label={t("form.page.1.field.2")} name={"email"}>
         <Controller
           name="email"
           control={control}
@@ -42,8 +46,12 @@ const PersonalInformation = () => {
               message: t("form.page.1.field.2.pattern"),
             },
           }}
-          render={({ field: { ref, ...field } }) => (
-            <Input {...field} placeholder={t("form.page.1.field.2")} />
+          render={({ field: { ref, name, ...field } }) => (
+            <Input
+              {...field}
+              name={name}
+              placeholder={t("form.page.1.field.2")}
+            />
           )}
         />
         {errors.email && (
@@ -51,7 +59,7 @@ const PersonalInformation = () => {
         )}
       </Label>
 
-      <Label label={t("form.page.1.field.3")}>
+      <Label label={t("form.page.1.field.3")} name={"birthDate"}>
         <Controller
           name="birthDate"
           control={control}
@@ -68,8 +76,12 @@ const PersonalInformation = () => {
             },
             required: t("form.page.1.field.3.required"),
           }}
-          render={({ field: { ref, ...field } }) => (
-            <DatePicker placeholder={t("form.page.1.field.3")} {...field} />
+          render={({ field: { ref, name, ...field } }) => (
+            <DatePicker
+              name={name}
+              placeholder={t("form.page.1.field.3")}
+              {...field}
+            />
           )}
         />
         {errors.birthDate && (
